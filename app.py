@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_jwt import JWT
 from flask_restful import Api
@@ -6,9 +7,11 @@ from resources.user import UserRegister
 from resources.item import Item, ItemList
 from resources.store import Store, StoreList
 from db import db
+def change_to_right_pg(strr):
+    return "postgresql" + strr[8:]
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = change_to_right_pg(os.environ.get('DATABASE_URL'))
 app.secret_key = "mahakg290399"
 api = Api(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
