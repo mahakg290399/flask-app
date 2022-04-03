@@ -1,0 +1,4 @@
+#Introduction
+
+This file is for the Introduction
+The libraries used in this project is Flask, Flask_RESTful, Flask_JWT, SQLAlchemy, flask_sqlalchemy etc
